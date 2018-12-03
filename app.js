@@ -7,33 +7,35 @@ GAME FUNCTION:
  - Let player choose to play again
  */
 
-// game values
-let min = 1,
-    max = 10,
-    winningNum = getRandom(min, max),
-    guessesLeft = 3;
-
 // UI Elements
 const game = document.querySelector('#game'),
-    minNum = document.querySelector('.min-num'),
-    maxNum = document.querySelector('.max-num'),
-    guessBtn = document.querySelector('#guess-btn'),
-    guessInput = document.querySelector('#guess-input'),
-    message = document.querySelector('.message');
+  minNum = document.querySelector('.min-num'),
+  maxNum = document.querySelector('.max-num'),
+  guessBtn = document.querySelector('#guess-btn'),
+  guessInput = document.querySelector('#guess-input'),
+  message = document.querySelector('.message');
+    
+// console.log(minValue.value);
+// game values
+
+let min = Number(window.prompt("Type a min number", "")),
+  max = Number(window.prompt("Type a max number", "")),
+  winningNum = getRandom(min, max),
+  guessesLeft = 3;
 
 // Assign UI min and max 
 minNum.textContent = min;
 maxNum.textContent = max;
 
 // Play again Event Listener
-game.addEventListener('mousedown', function (e) {
-    if (e.target.className === 'play-again') {
-        if (confirm('Do you wont to play again ?')) {
-            window.location.reload();
-        } else {
-            window.close();
-        }
+game.addEventListener ('mousedown', function (e) {
+  if (e.target.className === 'play-again') {
+    if (confirm('Do you wont to play again ?')) {
+      window.location.reload();
+    } else {
+      window.close();
     }
+  }
 });
 
 // Listen for guess
